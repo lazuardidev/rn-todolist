@@ -1,0 +1,6 @@
+export const SCREENS = {
+  HOME: 'HOME',
+  CREATE: 'CREATE',
+  COMPLETE: 'COMPLETE',
+  DETAIL: 'DETAIL',
+};
