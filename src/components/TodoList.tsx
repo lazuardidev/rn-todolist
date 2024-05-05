@@ -8,27 +8,30 @@ export const TodoList = ({
   onToggleTodo,
   onNavigateToDetail,
 }: any) => {
-  // const todosState = useAppSelector(state => state.todos);
-  // const dispatch = useAppDispatch();
-
   const renderItem = ({item}: any) => {
     return (
       <TouchableOpacity
         onPress={() => onNavigateToDetail(item)}
         style={styles.itemContainer}>
         <View style={styles.rowContainer}>
-          <Text numberOfLines={1} ellipsizeMode="tail" style={styles.itemText}>
+          <Text
+            testID={`title-${item.id}`}
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={styles.itemText}>
             {item.title}
           </Text>
           <TouchableOpacity>
             <View style={styles.buttonContainer}>
               <Ionicons
+                testID={`btn-delete-${item.id}`}
                 name="trash-outline"
                 size={25}
                 color="#333"
                 onPress={() => onDeleteTodo(item.id)}
               />
               <Ionicons
+                testID={`btn-complete-${item.id}`}
                 name="checkmark-circle-outline"
                 size={25}
                 color="#333"
@@ -37,7 +40,11 @@ export const TodoList = ({
             </View>
           </TouchableOpacity>
         </View>
-        <Text numberOfLines={2} ellipsizeMode="tail" style={styles.descText}>
+        <Text
+          testID={`desc-${item.id}`}
+          numberOfLines={2}
+          ellipsizeMode="tail"
+          style={styles.descText}>
           {item.description}
         </Text>
       </TouchableOpacity>
@@ -47,6 +54,7 @@ export const TodoList = ({
   return (
     <View>
       <FlatList
+        testID="todo-list"
         data={data}
         renderItem={({item}) => renderItem({item})}
         keyExtractor={item => item.id}

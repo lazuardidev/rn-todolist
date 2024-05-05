@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {Button, TextInput, Checkbox} from 'react-native-paper';
 import {TTodo} from '../utils/type';
 
@@ -21,6 +21,7 @@ export const FormTodo = ({
   return (
     <View style={styles.formContainer}>
       <TextInput
+        testID="title"
         label="Title"
         mode="outlined"
         style={styles.input}
@@ -29,6 +30,7 @@ export const FormTodo = ({
         onChangeText={text => setFormData({...formData, title: text})}
       />
       <TextInput
+        testID="description"
         label="Description"
         mode="outlined"
         style={styles.input}
@@ -39,23 +41,33 @@ export const FormTodo = ({
         onChangeText={text => setFormData({...formData, description: text})}
       />
       {onEdit && onDelete && (
-        <View style={styles.checkboxContainer}>
+        <TouchableOpacity
+          style={styles.checkboxContainer}
+          onPress={() =>
+            setFormData({...formData, isComplete: !formData.isComplete})
+          }>
           <Checkbox
+            key={'mark-complete-checkbox'}
             status={formData.isComplete ? 'checked' : 'unchecked'}
-            onPress={() =>
-              setFormData({...formData, isComplete: !formData.isComplete})
-            }
+            // onPress={() =>
+            //   setFormData({...formData, isComplete: !formData.isComplete})
+            // }
           />
           <Text>Mark as complete</Text>
-        </View>
+        </TouchableOpacity>
       )}
       {onCreate && (
-        <Button mode="contained" onPress={onCreate} style={styles.btn}>
+        <Button
+          id="create-button"
+          mode="contained"
+          onPress={onCreate}
+          style={styles.btn}>
           Create
         </Button>
       )}
       {onEdit && (
         <Button
+          id="edit-button"
           mode="contained"
           onPress={() => onEdit(formData.id)}
           style={styles.btn}>
@@ -64,6 +76,7 @@ export const FormTodo = ({
       )}
       {onDelete && (
         <Button
+          id="delete-button"
           mode="contained"
           buttonColor="red"
           onPress={() => onDelete(formData.id)}

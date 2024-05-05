@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export const ButtonCreate = ({onPress}: {onPress: () => void}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={onPress}>
+      <TouchableOpacity
+        testID="button-create"
+        style={styles.button}
+        onPress={onPress}>
         <Ionicons name="add" size={24} color="white" />
       </TouchableOpacity>
     </View>
