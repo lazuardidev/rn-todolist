@@ -2,10 +2,12 @@
 
 This **Todo List** application allow users to add, delete, edit, and complete task. In addition, the application also be able to store data locally.
 
-<img src="./screenshots/home.png" alt="Image 1" width="150">
-<img src="./screenshots/create.png" alt="Image 2" width="150">
-<img src="./screenshots/complete.png" alt="Image 3" width="150">
-<img src="./screenshots/detail.png" alt="Image 4" width="150">
+<div style="display: flex; justify-content: space-between;">
+    <img src="./screenshots/home.png" alt="Image 1" width="240">
+    <img src="./screenshots/create.png" alt="Image 2" width="240">
+    <img src="./screenshots/complete.png" alt="Image 3" width="240">
+    <img src="./screenshots/detail.png" alt="Image 4" width="240">
+</div>
 
 ## Start Metro Server
 
